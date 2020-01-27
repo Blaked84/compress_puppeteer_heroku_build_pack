@@ -19,14 +19,18 @@ function topic() {
 
 cd $BUILD_DIR
 
-topic "Compress local_chromium"
+# topic "Compress local_chromium"
 
-zip -r local_chromium.zip $BUILD_DIR/node_modules/puppeteer/.local-chromium
-rm -r node_modules/puppeteer/.local-chromium
+# zip -r local_chromium.zip $BUILD_DIR/node_modules/puppeteer/.local-chromium
+# rm -r node_modules/puppeteer/.local-chromium
 
 
 topic "Writing profile script"
 mkdir -p $BUILD_DIR/.profile.d
-cat <<EOF >$BUILD_DIR/.profile.d/expend_chrome.sh
-	unzip $BUILD_DIR/local_chromium.zip
+# cat <<EOF >$BUILD_DIR/.profile.d/expend_chrome.sh
+# 	unzip $BUILD_DIR/local_chromium.zip
+# EOF
+
+cat <<EOF >$BUILD_DIR/.profile.d/install_chrome.sh
+	yarn add puppeteer
 EOF
